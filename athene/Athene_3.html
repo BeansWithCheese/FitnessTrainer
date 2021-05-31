@@ -1,93 +1,163 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-<head>
-    <meta charset="UTF-8">
-    <!-- FAVICON-->
-    <link rel="icon" href="favicon.ico">
-    <!-- Required meta tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
-
-    <script type="text/javascript" src="/eon-chart.js"></script>
-    <script type="text/javascript" src="https://pubnub.github.io/eon/v/eon/1.0.0/eon.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://pubnub.github.io/eon/v/eon/1.0.0/eon.css"/>
-    <title>Jumping Jacks</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-
-<body>
-    <div class="container mt-5">
-        <div class="frame">
-
-                <!-- 스퀏 카운터-->
-                <div class="headline">
-                    <div class="small">JUMP</div>Counter
-                
-                </div>
-                <div class="circle-big">
-                    <div class="text">
-                        <span id="counter">0</span><div class="small"></div>
-
-                    </div>
-                    <svg>
-                        <circle class="bg" cx="57" cy="57" r="52" />
-                        <circle class="progress" cx="57" cy="57" r="52" />
-                    </svg>
-                </div>
-
-
-                <!--스퀏 퍼센테이지-->
-                <div class="headline">
-                    <div class="small">GOOD</div>
-                
-                </div>
-                <div class="circle-big">
-                    <div class="text">
-                        <span id="probability">0</span>%<div class="small"></div>
-
-                    </div>
-                    <svg>
-                        <circle class="bg" cx="57" cy="57" r="52" />
-                        <circle class="probprog" cx="57" cy="57" r="52" />
-                    </svg>
-                </div>
-                
-
-                <!--잘못된 자세 퍼센테이지-->
-                <div class="headline">
-                    <p class="small">bad</p>
-                </div>
-                <div class="circle-big">
-                    <div class="text">
-                        <span id="wprobability">0</span>%<div class="small"></div>
-
-                    </div>
-                    <svg>
-                        <circle class="bg" cx="57" cy="57" r="52" />
-                        <circle class="wprobprog" cx="57" cy="57" r="52" />
-                    </svg>
-                </div>
-        </div>
-
-        <h1>Jumping Jacks</h1>
-       
-        <!-- Customize-->
-        <div>
-        	 <button id="autoClickBtn" class="btn btn-primary" type="button" onclick="init()">Let's Go</button>
-			<label for="MaxRep">Num of Rep:</label>
-		    <input type="text" maxlength="3" size="3" id="" name="" value="">
-		</div>
+    <head>
+        <meta charset="UTF-8">
+        <!-- FAVICON-->
+        <link rel="icon" href="../favicon.ico">
+        <!-- Required meta tags -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         
-        <div><canvas id="canvas"></canvas></div>
-        <div id="label-container"></div>
-    </div>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
+    
+        <script type="text/javascript" src="../eon-chart.js"></script>
+        <script type="text/javascript" src="https://pubnub.github.io/eon/v/eon/1.0.0/eon.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://pubnub.github.io/eon/v/eon/1.0.0/eon.css"/>
+        <title>Plank</title>
+        <link rel="stylesheet" href="../assets/css/main.css">
+    </head>
+    
+
+<body class="right-sidebar is-preload">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+            <div id="header">
+
+                
+
+                <section class="col-5 col-12-mobile">
+                    <header>
+                        <h2 class="icon solid fa-dumbbell circled"><h1>Workout</h1></h2>
+                    </header>
+
+                </section>
+                    
+                
+                
+                <!-- Nav -->
+                <nav id="nav">
+                    
+                    <ul>
+                        <li><a href="../my-records.html">My Records</a></li>
+                        <li><a href="../index.html"><strong>Workout</strong></a></li>
+                        <li><a href="../settings.html">Setting</a></li>
+                        <li><a href="../customer-service.html"><strong>Customer Service</strong></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="container">
+                <header><h2 style="margin-top: 5%;">Plank</h2></header>
+                
+                    <!-- Customize-->
+                    <div>
+                        <button id="autoClickBtn" class="button" type="button" onclick="init()">Let's Go</button>
+                        <br><br>
+                        <label>Num of Rep:</label>
+                        <br>
+                        <input type="text" maxlength="3" size="3" id="" name="" value="" style="width: 20%;">
+                    </div>
+                    
+                    <div><canvas id="canvas"></canvas></div>
+                    <div id="label-container"></div>
+            </div>
+            <!--workout--->
+            <div class="added_container mt-5">
+                    <div class="added_frame">
+
+                            <!-- 스퀏 카운터-->
+                            <div class="added_headline">
+                                <div class="small">Plank</div>Counter
+                            
+                            </div>
+                            <div class="added_circle-big">
+                                <div class="text">
+                                    <span id="added_counter">0</span><div class="small"></div>
+
+                                </div>
+                                <svg>
+                                    <circle class="bg" cx="57" cy="57" r="52" />
+                                    <circle class="progress" cx="57" cy="57" r="52" />
+                                </svg>
+                            </div>
+
+
+                            <!--스퀏 퍼센테이지-->
+                            <div class="added_headline">
+                                <div class="small">GOOD</div>
+                            
+                            </div>
+                            <div class="added_circle-big">
+                                <div class="text">
+                                    <span id="probability">0</span>%<div class="small"></div>
+
+                                </div>
+                                <svg>
+                                    <circle class="bg" cx="57" cy="57" r="52" />
+                                    <circle class="probprog" cx="57" cy="57" r="52" />
+                                </svg>
+                            </div>
+                            
+
+                            <!--잘못된 자세 퍼센테이지-->
+                            <div class="added_headline">
+                                <p class="small" style="text-align: center;">BAD</p>
+                            </div>
+                            <div class="added_circle-big">
+                                <div class="text">
+                                    <span id="wprobability">0</span>%<div class="small"></div>
+
+                                </div>
+                                <svg>
+                                    <circle class="bg" cx="57" cy="57" r="52" />
+                                    <circle class="wprobprog" cx="57" cy="57" r="52" />
+                                </svg>
+                            </div>
+                    </div>
+                </div>
+                        <!-- Footer -->
+				<div id="footer">
+					<div class="container">
+						<div class="row">
+
+							
+							<div class="col-12">
+
+								<!-- Contact -->
+									<section class="contact">
+										<header>
+											<h3>We Have a Social Media</h3>
+										</header>
+										<p>Nah We Don't.</p>
+										<ul class="icons">
+											<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+											<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+											<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+											<li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
+											<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+											<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
+										</ul>
+									</section>
+
+								<!-- Copyright -->
+									<div class="copyright">
+										<ul class="menu">
+											<li>&copy; Handong. All rights reserved.</li><li>Design: <a href="http://www.handong.edu">Design Engineering</a></li>
+										</ul>
+									</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+		</div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -150,18 +220,24 @@
         // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
 
         // the link to your model provided by Teachable Machine export panel
-        const URL = "./models/JUMPINGJACKS_model/my-pose-model/";
+        const URL = "../models/JUMPINGJACKS_model/my-pose-model/";
         let model, webcam, ctx, labelContainer, maxPredictions;
 
         window.onload = function(){
             document.getElementById('autoClickBtn').click();
         }
 
+        function sleep(ms) {
+            return new Promise(
+                resolve => setTimeout(resolve, ms)
+            );
+        }
+
         async function init() {
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
 
-            var audio = new Audio('./data/Voice/English/AreYouReady.mp3')
+            var audio = new Audio('../data/Voice/English/AreYouReady.mp3')
             audio.play()
             
             // load the model and metadata
@@ -186,13 +262,26 @@
             for (let i = 0; i < maxPredictions; i++) { // and class labels
                 labelContainer.appendChild(document.createElement("div"));
             }
+
+
+            await sleep(3000);
+            
+            // Plank mp3
+            var audio = new Audio('../data/Voice/English/Plank.mp3');
+            audio.play();
+
+            await sleep(154000);
+            
+            var audio = new Audio('../data/Voice/한글/유학생/고생했어요.mp3');
+            audio.play();
+
+            await sleep(2000);
+            // await delay(5000);
+            location.replace("./Athene_4.html")
+            
         }
 
-        function sleep(ms) {
-  			return new Promise(
-    			resolve => setTimeout(resolve, ms)
- 			);
-		}
+        
 
         async function loop(timestamp) {
             webcam.update(); // update the webcam frame
@@ -214,7 +303,7 @@
             
             // 10% 마이너스 하는게 화면으로는 10% + 
             if(count==100){
-                location.replace("Athene_2.html")
+                location.replace("./Athene_4.html")
             }
             // prediction[0] -> stand_stance
             // prediction[1] -> squat_stance
@@ -250,11 +339,11 @@
                     
 
                     if((count >= 10) && (count % 10==0)){
-                        var audio = new Audio('./data/Voice/English/VeryGood_UK.mp3')
+                        var audio = new Audio('../data/Voice/English/VeryGood_UK.mp3')
                         audio.play();
                         await sleep(100);   
                     } else {
-                    	var audio = new Audio('./data/Voice/한글/유학생/' + count%10 +'_유학생.mp3');
+                    	var audio = new Audio('../data/Voice/한글/유학생/' + count%10 +'_유학생.mp3');
                     	audio.play();
                     }
                 }
